@@ -64,3 +64,7 @@ $( "#mybtc" )
     if($( "#mybtc" ).text.length>0)
     localStorage.setItem("mybtc",parseFloat($( "#mybtc" ).val()))
   })
+  $( "#clearLocal" )
+  .click(function() {
+    localStorage.clear();
+  })
