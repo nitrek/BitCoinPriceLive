@@ -22,7 +22,7 @@
             console.log(data);
             var curPrice = data.sell;
             var buyPrice = data.buy;
-            var myMoneyVal = curPrice*0.0305619;
+            var myMoneyVal = curPrice*localStorage.getItem("mybtc");
             var prePrice = parseInt($("#pricebtcs").text());
             if (prePrice > curPrice) {
               $('body').css('background-color', 'red');
@@ -49,3 +49,9 @@
     })
   }, 3000);
 })();
+
+$( "#mybtc" )
+  .focusout(function() {
+    if($( "#mybtc" ).text.length>0)
+    localStorage.setItem("mybtc",parseFloat($( "#mybtc" ).val()))
+  })
