@@ -22,12 +22,17 @@
             console.log(data);
             var curPrice = data.sell;
             var buyPrice = data.buy;
+            if(localStorage.getItem("lastprice")==null)
+              localStorage.setItem("lastprice",curPrice);
             var myMoneyVal = curPrice*localStorage.getItem("mybtc");
             var myMoneyValb = buyPrice*localStorage.getItem("mybtc");
-            var prePrice = parseInt($("#pricebtcs").text());
+            var prePrice =localStorage.getItem("lastprice");// parseInt($("#pricebtcs").text());
             if (prePrice > curPrice) {
               $('body').css('background-color', 'red');
-            } else {
+            } else  if (prePrice ==curPrice){
+              $('body').css('background-color', 'blue');
+            }
+            else {
               $('body').css('background-color', 'green');
             }
            // $("#pricebtc").text();
