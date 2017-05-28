@@ -26,16 +26,23 @@
               localStorage.setItem("lastprice",curPrice);
             var myMoneyVal = curPrice*localStorage.getItem("mybtc");
             var myMoneyValb = buyPrice*localStorage.getItem("mybtc");
-            var prePrice =localStorage.getItem("lastprice");// parseInt($("#pricebtcs").text());
+            var prePrice =parseInt(localStorage.getItem("lastprice"));// parseInt($("#pricebtcs").text());
+            var title ;
             if (prePrice > curPrice) {
               $('body').css('background-color', 'red');
+              title =  " \\/";
             } else  if (prePrice ==curPrice){
               $('body').css('background-color', 'blue');
+              title =  "--";
             }
             else {
               $('body').css('background-color', 'green');
+               title =  '/\\';
             }
            // $("#pricebtc").text();
+           diff = curPrice -prePrice;
+           title = title +" "+ diff +" |Bitcoin Price Live | India |INR"
+           $(document).prop('title', title);
             $("#pricebtcb").fadeOut(function() {
               $(this).text(buyPrice).fadeIn();
             });
