@@ -41,6 +41,7 @@
             }
            // $("#pricebtc").text();
            diff = curPrice -prePrice;
+           var diffb= myMoneyValb - myMoneyVal;
            title = title +" "+ diff +" |Bitcoin Price Live | India |INR"
            $(document).prop('title', title);
             $("#pricebtcb").fadeOut(function() {
@@ -54,6 +55,9 @@
             });
                $("#pricebtcmb").fadeOut(function() {
               $(this).text(myMoneyValb).fadeIn();
+            });
+               $("#pricediff").fadeOut(function() {
+              $(this).text(diffb).fadeIn();
             });
           })
         }
