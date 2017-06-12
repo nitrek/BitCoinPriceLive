@@ -24,10 +24,14 @@
             var buyPrice = data.buy;
             if(localStorage.getItem("lastprice")==null)
               localStorage.setItem("lastprice",curPrice);
+             if(localStorage.getItem("compprice")==null)
+              localStorage.setItem("compprice",curPrice)
             var myMoneyVal = curPrice*localStorage.getItem("mybtc");
             var myMoneyValb = buyPrice*localStorage.getItem("mybtc");
             var prePrice =parseInt(localStorage.getItem("lastprice"));// parseInt($("#pricebtcs").text());
             var title ;
+            if(curPrice<localStorage.getItem("compprice"))
+              alert("buy Now price have dropped");
             if (prePrice > curPrice) {
               $('body').css('background-color', 'red');
               title =  " \\/";
